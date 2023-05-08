@@ -8,13 +8,13 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
-import Dashboard from './components/Dashboard.vue';
+import DashboardApp from './components/DashboardApp.vue';
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    Dashboard
+    DashboardApp
   }
 }
 </script>

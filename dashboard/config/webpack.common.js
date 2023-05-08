@@ -1,6 +1,11 @@
+const {VueLoaderPlugin} = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: './src/main.js',
+    output:{
+        filename: '[name].[contenthash].js',
+    },
     module:{
         rules: [
             {
@@ -30,23 +35,20 @@ module.exports = {
             }
         ],
     },
-    /* resolve: {
-        alias: {
-          'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
-        }
-    }, */
     resolve: {
         alias: {
             vue: 'vue/dist/vue.js'
         },
     },
-    plugins:[
+    plugins: [
+        new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',
-            title: 'Main Vue2 Container',
+            title: 'Vue2 Dashboard',
             templateParameters:{
-                BASE_URL: `http://localhost:8080/`
+                BASE_URL: `http://localhost:8081/`
             }
+            
         })
     ]
 }
