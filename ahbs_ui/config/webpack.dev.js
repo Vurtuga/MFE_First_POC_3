@@ -1,18 +1,17 @@
 const path = require("path");
 const {merge} = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig = require('./webpack.common');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const packageJson = require( '../package.json');
 
 const devConfig = {
     mode: 'development',
-    entry: path.resolve(__dirname, "../src/main.js"),
+    entry: path.resolve(__dirname, "../src/index.js"),
     output:{
-        publicPath: `http://localhost:8081/`,
+        publicPath: `http://localhost:8084/`,
     },
     devServer:{
-        port: 8081,
+        port: 8084,
         historyApiFallback: true,
         headers:{
             'Access-Control-Allow-Origin': '*'
@@ -20,17 +19,13 @@ const devConfig = {
     },
     plugins:[
         new ModuleFederationPlugin({
-            name: 'dashboard',
+            name: 'shared',
             filename: 'remoteEntry.js',
             exposes:{
-                './DashboardApp':'./src/bootstrap'
-            },
-            remotes :{
-                shared: 'shared@http://localhost:8084/remoteEntry.js',
+                './AHBSUI':'./src/index'
             },
             shared: packageJson.dependencies ,
         }),
-        /* new VueLoaderPlugin() */
     ]
 }
 
