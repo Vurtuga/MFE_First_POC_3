@@ -1,17 +1,19 @@
 <template>
-  <div class="dashboard-wrapper">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <div id="_dashboard-wrapper">
+    <router-link to="/dashboard" key="go_home">Go to Index</router-link>
+    <router-link to="/dashboard/Test" key="go_dashboard">Go to Test Page</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DashboardIndex from './components/DashboardIndex.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    DashboardIndex
   }
 }
 </script>

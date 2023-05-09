@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <router-link to="/">Go to Home</router-link>
-    <router-link to="/dashboard">Go to dashboard</router-link>
+  <div id="_container-wrapper">
+    <router-link to="/" key="go_home">Go to Home</router-link>
+    <router-link to="/dashboard" key="go_dashboard">Go to dashboard</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -19,13 +19,3 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

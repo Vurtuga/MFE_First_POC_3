@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "_start": "webpack serve --config config/webpack.dev.js",
+    "_serve": "webpack serve --config config/webpack.dev.js",
     "_build": "webpack --config config/webpack.prod.js"
   },
   "dependencies": {
@@ -15,7 +15,8 @@
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.2",
     "vue": "^2.6.14",
-    "vue-loader": "^15.10.0"
+    "vue-loader": "^15.10.0",
+    "vue-router": "^3.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
