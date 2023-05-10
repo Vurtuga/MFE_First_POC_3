@@ -10,8 +10,6 @@ export default {
   mounted:function(){
 
     console.log("DashboardIndex Mounted");
-    UI_Helpers.alertString("alert");
-    UI_Helpers.logString("alert");
   },
   destroyed: function() {
 
