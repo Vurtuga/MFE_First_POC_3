@@ -11,29 +11,26 @@ const mount = (el,{onNavigate , defaultHistory, initialPath}) =>{
     
     const router = defaultHistory || new VueRouter({ 
         mode: 'abstract', 
-        routes: routes,
-        base : initialPath,
+        routes: routes,        
     });
+
+    if(onNavigate){
+        router.afterEach((to, from) => {
+            onNavigate({to: to,from: from});
+        });
+    }
+
     console.log("Dashboard routes =>",router)
     new Vue({
         router,
         render: h => h(App),
-        watch: {
-            $route (to, from) {
-                if(onNavigate){
-                onNavigate({to: to,from: from});
-                }
-            }
-        }
     }).$mount(el);
 
     return {
         onParentNavigate(args){
-
-            if(router.currentRoute.path !== args.to.path){
-                router.push(args.to.path);  
+            if(router.currentRoute.path !== args.path){
+                router.push(args.path);  
             }
-            console.log("=================================== ");
         }
     }
 }
