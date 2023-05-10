@@ -12,8 +12,8 @@ export default {
   name: 'HelloWorld',
   mounted:function(){
     console.log("HelloWorld Mounted");
-    UI_Helpers.alertString("alert");
-    UI_Helpers.logString("alert");
+    /* UI_Helpers.alertString("alert");
+    UI_Helpers.logString("alert"); */
   },
   components:{
     XButton

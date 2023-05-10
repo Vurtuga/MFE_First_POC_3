@@ -11,13 +11,18 @@ const mount = (el,{onNavigate , defaultHistory, initialPath}) =>{
     
     const router = defaultHistory || new VueRouter({ 
         mode: 'abstract', 
-        routes: routes,        
+        routes: routes,
     });
 
     if(onNavigate){
         router.afterEach((to, from) => {
             onNavigate({to: to,from: from});
         });
+    }
+
+    //set initial path for the router   
+    if(initialPath && router.currentRoute.path !== initialPath){
+        router.push(initialPath);
     }
 
     console.log("Dashboard routes =>",router)
