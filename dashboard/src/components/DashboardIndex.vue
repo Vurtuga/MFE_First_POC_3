@@ -7,9 +7,16 @@
 <script>
 export default {
   name: 'DashboardIndex',
-  props: {
-    msg: String
-  }
+  mounted:function(){
+
+    console.log("DashboardIndex Mounted");
+    UI_Helpers.alertString("alert");
+    UI_Helpers.logString("alert");
+  },
+  destroyed: function() {
+
+console.log("DashboardIndex Destroyed");
+},
 }
 </script>
 
