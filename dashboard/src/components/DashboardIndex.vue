@@ -8,7 +8,6 @@
 export default {
   name: 'DashboardIndex',
   mounted:function(){
-
     console.log("DashboardIndex Mounted");
   },
   destroyed: function() {

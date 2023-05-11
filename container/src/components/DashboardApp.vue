@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import {mount} from 'dashboard/DashboardApp';
+import {mount,destroy} from 'dashboard/DashboardApp';
 
 
 export default {
   name: 'DashboardApp',
+  
   mounted: function() {
-    //run function first time only
     console.log("DashboardApp Mounted");
     const{onParentNavigate} = mount(this.$refs.dashboardRoot,{
       initialPath: this.$router.currentRoute.path,
@@ -23,7 +23,7 @@ export default {
     this.$router.afterEach(onParentNavigate);
   },
   destroyed: function() {
-
+    destroy();
     console.log("DashboardApp Destroyed");
   },
 }

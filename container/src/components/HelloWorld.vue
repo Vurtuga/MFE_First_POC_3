@@ -17,6 +17,10 @@ export default {
   },
   components:{
     XButton
-  }
+  },
+  destroyed: function() {
+    
+    console.log("HelloWorld Destroyed");
+  },
 }
 </script>

@@ -7,13 +7,14 @@ Vue.use(VueRouter);
 
 Vue.config.productionTip = false;
 
+let app ;
+
 const mount = (el,{onNavigate , defaultHistory, initialPath}) =>{
     
     const router = defaultHistory || new VueRouter({ 
         mode: 'abstract', 
         routes: routes,
     });
-
     if(onNavigate){
         router.afterEach((to, from) => {
             onNavigate({to: to,from: from});
@@ -21,23 +22,33 @@ const mount = (el,{onNavigate , defaultHistory, initialPath}) =>{
     }
 
     //set initial path for the router   
+    
     if(initialPath && router.currentRoute.path !== initialPath){
         router.push(initialPath);
     }
 
-    console.log("Dashboard routes =>",router)
-    new Vue({
+    app = new Vue({
         router,
         render: h => h(App),
-    }).$mount(el);
+    });
 
+    app.$mount(el);
+    
+
+    console.log("Dashboard routes =>",router)
     return {
         onParentNavigate(args){
             if(router.currentRoute.path !== args.path){
                 router.push(args.path);  
+                
             }
         }
     }
+}
+
+const destroy = function(){
+    console.log("mounted app destroyed");
+    app.$destroy();
 }
 
 if(process.env.NODE_ENV === 'development'){
@@ -52,4 +63,4 @@ if(process.env.NODE_ENV === 'development'){
     }
 }
 
-export {mount};
+export {mount,destroy};
