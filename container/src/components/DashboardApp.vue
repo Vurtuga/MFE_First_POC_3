@@ -1,5 +1,7 @@
 <template>
+  <div class="container_dashboardRoot">
     <div class="dashboard" ref="dashboardRoot"> </div>
+  </div>
 </template>
 
 <script>

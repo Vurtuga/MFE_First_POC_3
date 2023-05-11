@@ -12,7 +12,7 @@ export default {
   name: 'TestPage',
   mounted:function(){
     console.log("TestPage Mounted");
-    /* UI_Helpers.alertString("alert");
+   /*  UI_Helpers.alertString("alert");
     UI_Helpers.logString("alert"); */
   },
   components:{

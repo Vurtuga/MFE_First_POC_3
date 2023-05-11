@@ -1,7 +1,9 @@
 <template>
-  <div class="home">
-   <h4>Home</h4>
-   <XButton/>
+  <div class="container_helloWorldRoot">
+    <div class="home">
+      <h4>Home</h4>
+      <XButton/>
+    </div>
    </div>
 </template>
 
