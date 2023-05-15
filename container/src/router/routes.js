@@ -6,13 +6,13 @@ Vue.use(VueRouter);
 
 
  import HelloWorld from '../components/HelloWorld.vue';
-/*import DashboardApp from '../components/DashboardApp.vue'; */
+import DashboardApp from '../components/DashboardApp.vue';
 
 
 export default new VueRouter({
     mode: 'history',
     routes: [
-        { path: '/dashboard*', name:"dashboard", component: () => import ("../components/DashboardApp.vue")},
+        { path: '/dashboard*', name:"dashboard", component: DashboardApp},
         { path: '/', name:"HelloWorld", component: HelloWorld}
-    ]
-  })
+    ],
+})

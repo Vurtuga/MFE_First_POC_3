@@ -4,15 +4,24 @@
   </div>
 </template>
 
-<script>
-import {mount,destroy} from 'dashboard/DashboardApp';
 
+<script>
+/* import {mount,destroy} from 'dashboard/DashboardApp'; */
+import {loadModule} from '../utils/remote-loader';
+
+let mount,destroy;
 
 export default {
   name: 'DashboardApp',
-  
-  mounted: function() {
+  mounted: async function() {
     console.log("DashboardApp Mounted");
+    const remote = await loadModule ('http://localhost:8081/remoteEntry.js','dashboard','./DashboardApp');
+    if(!remote){
+      console.log("DashboardApp Remote not loaded");
+      return;
+    }
+    mount = remote.mount;
+    destroy = remote.destroy;
     const{onParentNavigate} = mount(this.$refs.dashboardRoot,{
       initialPath: this.$router.currentRoute.path,
       onNavigate:(args)=>{
@@ -29,4 +38,7 @@ export default {
     console.log("DashboardApp Destroyed");
   },
 }
+
+
+
 </script>

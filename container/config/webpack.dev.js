@@ -19,11 +19,11 @@ const devConfig = {
             'Access-Control-Allow-Origin': '*'
         }
     },
-    plugins:[
+    plugins:[ 
         new ModuleFederationPlugin({
             name: 'container',
             remotes :{
-                dashboard: 'dashboard@http://localhost:8081/remoteEntry.js',
+               /*  dashboard: 'dashboard@http://localhost:8081/remoteEntry.js', */
                 shared: 'shared@'+process.env.SharedURL+'/remoteEntry.js',
             },
             shared: packageJson.dependencies ,
