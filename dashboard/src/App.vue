@@ -1,19 +1,18 @@
 <template>
 
   <div id="_dashboard-wrapper">
-    <router-link to="/dashboard" key="go_home">Go to Index</router-link>
-    <router-link to="/dashboard/Test" key="go_dashboard">Go to Test Page</router-link>
     <router-view></router-view>
+    <Header></Header>
   </div>
 </template>
 
 <script>
-import DashboardIndex from './components/DashboardIndex.vue'
+import { Header } from 'shared/AHBSUI';
 
 export default {
   name: 'App',
   components: {
-    DashboardIndex
+    Header
   }
 }
 </script>

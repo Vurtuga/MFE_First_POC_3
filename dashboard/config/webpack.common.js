@@ -20,7 +20,7 @@ module.exports = {
             },
             {
                 test: /\.scss|\.css$/,
-                use: ['style-loader','css-loader']
+                use: ['style-loader','css-loader','sass-loader']
             },
             {
                 test: /\.m?js$/,
@@ -42,13 +42,6 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            title: 'Vue2 Dashboard',
-            templateParameters:{
-                BASE_URL: `http://localhost:8081/`
-            }
-            
-        })
+        
     ]
 }
