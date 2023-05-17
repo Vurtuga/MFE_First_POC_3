@@ -42,6 +42,13 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            title: 'Vue2 Dashboard',
+            templateParameters:{
+                BASE_URL: `http://localhost:8081/`
+            }
+            
+        })
     ]
 }
