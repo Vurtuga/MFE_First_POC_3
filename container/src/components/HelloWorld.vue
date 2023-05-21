@@ -2,13 +2,13 @@
   <div class="container_helloWorldRoot">
     <div class="home">
       <h4>Home</h4>
-      <XButton/>
+    <!--   <XButton/> -->
     </div>
    </div>
 </template>
 
 <script>
-import { UI_Helpers , XButton } from 'shared/AHBSUI';
+/* import { UI_Helpers , XButton } from 'shared/AHBSUI'; */
 
 export default {
   name: 'HelloWorld',
@@ -17,9 +17,9 @@ export default {
     /* UI_Helpers.alertString("alert");
     UI_Helpers.logString("alert"); */
   },
-  components:{
+  /* components:{
     XButton
-  },
+  }, */
   destroyed: function() {
     
     console.log("HelloWorld Destroyed");

@@ -14,6 +14,7 @@ export default {
   name: 'DashboardApp',
   mounted: async function() {
     console.log("DashboardApp Mounted"); 
+    // load remote module
     const remote = await this.$remoteLoader.loadModule ('http://localhost:8081/remoteEntry.js','dashboard','./DashboardApp');
     if(!remote){
       console.log("DashboardApp Remote not loaded");
